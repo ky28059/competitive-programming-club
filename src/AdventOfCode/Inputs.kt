@@ -8,3 +8,4 @@ val day1: String = "1864 1880 1300 1961 1577 1900 1307 1818 1736 1846 1417 1372 
 val day2: List<String> = File("src/AdventOfCode/day2.in").readLines()
 val day3: List<String> = File("src/AdventOfCode/day3.in").readLines()
 val day4: List<String> = File("src/AdventOfCode/day4.in").readText().split("\n\n").map { it.replace("\n", " ") }
+val day5: List<String> = File("src/AdventOfCode/day5.in").readLines()
