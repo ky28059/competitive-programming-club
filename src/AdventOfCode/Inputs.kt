@@ -11,3 +11,4 @@ val day4: List<String> = File("src/AdventOfCode/day4.in").readText().split("\n\n
 val day5: List<String> = File("src/AdventOfCode/day5.in").readLines()
 val day6: List<List<String>> = File("src/AdventOfCode/day6.in").readText().split("\n\n").map { it.split("\n") }
 val day7: List<String> = File("src/AdventOfCode/day7.in").readLines()
+val day8: List<String> = File("src/AdventOfCode/day8.in").readLines()
