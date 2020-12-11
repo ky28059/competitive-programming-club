@@ -2,13 +2,7 @@ package AdventOfCode
 
 
 fun main () {
-    val map = ArrayList<String>()
     var treeCount: Long = 1
-
-    // Populate the map
-    for (line in day3) {
-        map.add(line)
-    }
 
     for (i in 1..5) {
         var rise: Int = 1
@@ -27,7 +21,7 @@ fun main () {
         var localTreeCount = 0
 
         while (k < day3.size) {
-            val line = map[k]
+            val line = day3[k]
 
             // In order for this multiplication to work, k needs to be the number of times iterated,
             // not just the current row, so it is divided by rise to get that value
