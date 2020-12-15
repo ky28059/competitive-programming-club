@@ -32,7 +32,7 @@ fun checkOccupiedNeighbors2(row: Int, col: Int, source: List<String>): Int {
     var neighbors = 0
 
     for (rise in -1..1) {
-        for (run in -1..1) { // run
+        for (run in -1..1) {
             if (!(rise == 0 && run == 0)) neighbors += rayCast(row, col, rise, run, source)
         }
     }
