@@ -23,7 +23,7 @@ fun main() {
         for (inner in bag) {
             // Extract bag count and bag name
             val count = inner[0]
-            val innerName = inner.substring(2..inner.length - 1)
+            val innerName = inner.substring(2 until inner.length)
 
             // Cast to string first because for SOME REASON char.toInt and toLong do not try to create a number out of the contents of the char
             // '4'.toLong() is 52

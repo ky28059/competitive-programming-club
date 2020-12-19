@@ -17,3 +17,5 @@ val day10: List<String> = File("src/AdventOfCode/day10.in").readLines()
 val day11: List<String> = File("src/AdventOfCode/day11.in").readLines()
 val day12: List<String> = File("src/AdventOfCode/day12.in").readLines()
 val day13: List<String> = File("src/AdventOfCode/day13.in").readLines()
+
+val day15: List<Int> = "16,12,1,0,15,7,11".split(',').map {it.toInt()} // Short so file io is excessive
