@@ -4,13 +4,17 @@ import java.util.*
 
 
 fun main() {
+    println(runElfGame(2020))
+}
+
+fun runElfGame(turns: Int): Int {
     val spoken = Hashtable<Int, Int>() // Key is the number being spoken, value is the last turn it was spoken
 
     // Can probably be done without lastSpoken
     var next = 0
     var lastSpoken = spoken[next]
-    
-    for (i in 0..2019) {
+
+    for (i in 0 until turns) {
         next = try {
             // If starting numbers remain
             day15[i]
@@ -25,6 +29,5 @@ fun main() {
         lastSpoken = spoken[next]
         spoken[next] = i // Set last spoken into the spoken map
     }
-    println(next)
+    return next
 }
-
