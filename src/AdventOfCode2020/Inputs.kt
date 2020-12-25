@@ -1,4 +1,4 @@
-package AdventOfCode
+package AdventOfCode2020
 
 import java.io.File
 
@@ -19,7 +19,7 @@ val day12: List<String> = File("src/AdventOfCode/day12.in").readLines()
 val day13: List<String> = File("src/AdventOfCode/day13.in").readLines()
 
 val day15: List<Int> = "16,12,1,0,15,7,11".split(',').map {it.toInt()} // Short so file io is excessive
-val day16: List<String> = File("src/AdventOfCode/day6.in").readText().split("\n\n")
+val day16: List<String> = File("src/AdventOfCode/day16.in").readText().split("\n\n")
 
 
 

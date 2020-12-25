@@ -1,4 +1,4 @@
-package AdventOfCode
+package AdventOfCode2020
 
 import java.util.*
 
@@ -64,7 +64,7 @@ fun calcRoundWinner(p1card: Int, p2card: Int, deck1: Queue<Int>, deck2: Queue<In
             next2.removeLast()
         }
 
-        // If both players cards are larger than their decks,
+        // If both players cards are smaller than or equal to their decks,
         // the winner of the round is determined by another game of recursive combat
         if (innerRecursiveCombat(LinkedList<Int>(next1), LinkedList<Int>(next2), mutableListOf(), mutableListOf())) {
             deck1.add(p1card)

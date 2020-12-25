@@ -1,4 +1,4 @@
-package AdventOfCode
+package AdventOfCode2020
 
 
 // Takes like 5 minutes to run

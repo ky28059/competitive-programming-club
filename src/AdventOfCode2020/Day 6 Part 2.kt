@@ -1,4 +1,4 @@
-package AdventOfCode
+package AdventOfCode2020
 
 fun main() {
     var sums = 0
