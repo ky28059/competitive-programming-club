@@ -1,8 +1,13 @@
+package USACO2020;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.*;
 
+
+// 2021 January Contest
+// Silver
 // Dies on time because of excessive Queue<Set<Integer>> and other such structures
 public class DanceMooves {
     public static void main(String[] args) throws IOException {
