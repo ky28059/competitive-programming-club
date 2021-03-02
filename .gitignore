@@ -2,3 +2,7 @@
 .DS_Store
 out
 lib
+
+# Files for experimenting with their languages
+test.kt
+test.java
