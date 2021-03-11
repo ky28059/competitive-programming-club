@@ -8,7 +8,8 @@ import java.util.stream.IntStream;
 
 
 // 2021 February Contest
-// Silver
+// Division: Silver
+// Verdict: Passed
 public class YearOfTheCow {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));

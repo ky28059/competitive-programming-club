@@ -6,7 +6,8 @@ import java.util.Arrays;
 
 
 // 2020 December Contest
-// Bronze
+// Division: Bronze
+// Verdict: Passed
 public class StuckInARut {
     // Function to sort by column
     public static void sortbyColumn(int[][] arr, int col) {

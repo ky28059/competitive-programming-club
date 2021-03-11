@@ -7,8 +7,8 @@ import java.util.*;
 
 
 // 2021 January Contest
-// Silver
-// Dies on time because of excessive Queue<Set<Integer>> and other such structures
+// Division: Silver
+// Verdict: Time
 public class DanceMooves {
     public static void main(String[] args) throws IOException {
         BufferedReader in = new BufferedReader(new InputStreamReader(System.in));

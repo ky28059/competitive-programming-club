@@ -6,8 +6,8 @@ import java.io.InputStreamReader;
 
 
 // 2021 February Contest
-// Silver
-// Unfinished
+// Division: Silver
+// Verdict: Not submitted (unfinished)
 public class ComfortableCows {
     public boolean[][] pasture;
     public boolean[][] simulated;

@@ -5,7 +5,8 @@ import java.util.Arrays;
 
 
 // 2020 December Contest
-// Bronze
+// Division: Bronze
+// Verdict: Passed
 public class ABCs {
     public static void main(String[] args) throws IOException {
         BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
