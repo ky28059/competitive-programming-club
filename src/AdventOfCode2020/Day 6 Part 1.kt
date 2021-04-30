@@ -1,5 +1,6 @@
 package AdventOfCode2020
 
+
 fun main() {
     var sums = 0
 

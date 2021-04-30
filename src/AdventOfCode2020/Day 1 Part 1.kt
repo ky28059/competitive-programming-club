@@ -2,13 +2,11 @@ package AdventOfCode2020
 
 
 fun main() {
-    val arr = day1.split(' ').map { it.toInt() }
-
-    for (i in arr.indices) {
+    for (i in day1.indices) {
         // Hacky solution to double nest the for loop and loop through all possible sums
-        for (k in i until arr.size) {
-            if (arr[i] + arr[k] == 2020) {
-                println(arr[i] * arr[k])
+        for (k in i until day1.size) {
+            if (day1[i] + day1[k] == 2020) {
+                println(day1[i] * day1[k])
             }
         }
     }

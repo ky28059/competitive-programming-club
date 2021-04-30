@@ -14,7 +14,7 @@ fun getInvalid(): Long {
     }
 
     // Run through remaining inputs
-    for (i in 25..(day9.size - 1)) {
+    for (i in 25 until day9.size) {
         var isValid = false
         val input = day9[i].toLong()
 

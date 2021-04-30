@@ -4,10 +4,11 @@ import java.util.*
 
 
 fun main() {
-    val (deck1: Queue<Int>, deck2: Queue<Int>) = day22.map { it.split("\n") } // Split via cards
-            .map { it.drop(1) } // Drop the "Player 1:" and "Player 2:"
-            .map { deck -> deck.map { it.toInt() } } // Map all strings to int
-            .map { it.toCollection(LinkedList()) }
+    val (deck1: Queue<Int>, deck2: Queue<Int>) = day22
+        .map { it.split(System.lineSeparator()) } // Split via cards
+        .map { it.drop(1) } // Drop the "Player 1:" and "Player 2:"
+        .map { deck -> deck.map { it.toInt() } } // Map all strings to int
+        .map { it.toCollection(LinkedList()) }
 
     println(combat(deck1, deck2))
 }

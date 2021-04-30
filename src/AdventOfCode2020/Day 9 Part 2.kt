@@ -13,7 +13,7 @@ fun main() {
     //}
 
     for (i in day9.indices) {
-        for (k in (i + 1)..(day9.size - 1)) {
+        for (k in (i + 1) until day9.size) {
             val subList = day9.slice(i..k).map{ it.toLong() }.toMutableList()
             subList.sort()
 
