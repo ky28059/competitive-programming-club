@@ -18,17 +18,17 @@ fun main() {
                 "hgt" ->
                     if (currValid) {
                         val unit = value.substring(value.length - 2, value.length) // Unit = last 2 chars of string
-                        var (min, max) = listOf(0, 0)
-                        when (unit) { // Set min and max when given unit
-                            "cm" -> { min = 150; max = 193 }
-                            "in" -> { min = 59; max = 76 }
+                        val (min, max) = when (unit) {
+                            "cm" -> listOf(150, 193)
+                            else -> listOf(59, 76) // "in"
                         }
                         currValid = value.substring(0, value.length - 2).toIntOrNull() in min..max // Int given must be within range specified by unit
                     }
                 "hcl" ->
-                    if (currValid) currValid = value[0] == '#' // First letter must be a #
-                            && value.substring(1, value.length).all { listOf('a', 'b', 'c', 'd', 'e', 'f').contains(it) || it.toString().toIntOrNull() in 0..9 } // All characters after the # must either be a-f or 0-9
-                            && value.length == 7 // Must be exactly 7 characters
+                    if (currValid) currValid =
+                        value[0] == '#' // First letter must be a #
+                        && value.substring(1, value.length).all { it in 'a'..'f' || it.toString().toIntOrNull() in 0..9 } // All characters after the # must either be a-f or 0-9
+                        && value.length == 7 // Must be exactly 7 characters
                 "ecl" -> if (currValid) currValid = listOf("amb", "blu", "brn", "gry", "grn", "hzl", "oth").contains(value) // Must be one of the specified strings
                 "pid" -> if (currValid) currValid = value.toIntOrNull() != null && value.length == 9 // Must be a 9 digit valid integer
             }

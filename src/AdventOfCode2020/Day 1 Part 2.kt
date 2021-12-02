@@ -1,7 +1,7 @@
 package AdventOfCode2020
 
+
 fun main() {
-    // The hackiest solution of all time, the triple for loop
     for (i in day1.indices) {
         for (k in i until day1.size) {
             for (j in k until day1.size) {

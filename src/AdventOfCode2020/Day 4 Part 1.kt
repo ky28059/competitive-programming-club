@@ -7,20 +7,15 @@ fun main() {
     for (passport in day4) {
         val fields = passport.split(" ").map { it.split(":") }
 
-        fun isInField(query: String): Boolean {
-            val search = fields.map { it[0] == query }
-            return search.reduce {s1, s2 -> s1 || s2}
-        }
-
         if (
             // Check to see if all fields are present
-            isInField("ecl")
-            && isInField("pid")
-            && isInField("eyr")
-            && isInField("hcl")
-            && isInField("byr")
-            && isInField("iyr")
-            && isInField("hgt")
+            fields.any { it[0] == "ecl" }
+            && fields.any { it[0] == "pid" }
+            && fields.any { it[0] == "eyr" }
+            && fields.any { it[0] == "hcl" }
+            && fields.any { it[0] == "byr" }
+            && fields.any { it[0] == "iyr" }
+            && fields.any { it[0] == "hgt" }
         ) valid++
     }
 
