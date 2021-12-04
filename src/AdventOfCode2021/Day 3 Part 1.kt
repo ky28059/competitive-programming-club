@@ -2,30 +2,33 @@ package AdventOfCode2021
 
 
 fun main() {
-    val store = BitStore(day3[0].length, day3.size)
+    val (gamma, epsilon) = getGammaEpsilon(day3)
+    println(gamma.toInt(2) * epsilon.toInt(2))
+}
 
-    for (bitStr in day3) {
+// Returns a pair of strings (gamma, epsilon) for the given list input
+// Defaults to breaking ties favoring '1', pass false to `preferOne` to favor '0'
+fun getGammaEpsilon(src: List<String>, preferOne: Boolean = true): Pair<String, String> {
+    val store = BitStore(src[0].length, src.size)
+
+    for (bitStr in src) {
         for (i in bitStr.indices) {
             store.inc(i, bitStr[i].toString().toInt())
         }
     }
 
-    var gamma = 0
-    var epsilon = 0
+    var gamma = ""
+    var epsilon = ""
     for (i in 0 until store.size) {
-        if (store.isMajorityOne(i)) {
-            gamma = (gamma + 1) shl 1
-            epsilon = epsilon shl 1
+        if (store.isMajorityOne(i, preferOne)) {
+            gamma += "1"
+            epsilon += "0"
         } else {
-            epsilon = (epsilon + 1) shl 1
-            gamma = gamma shl 1
+            epsilon += "1"
+            gamma += "0"
         }
     }
-    // Correct for overshifting
-    gamma = gamma shr 1
-    epsilon = epsilon shr 1
-
-    println(gamma * epsilon)
+    return gamma to epsilon
 }
 
 // Not an ideal implementation
@@ -35,7 +38,8 @@ data class BitStore(val size: Int, val bitCount: Int) {
     fun inc(bit: Int, value: Int) {
         if (value == 1) backing[bit]++
     }
-    fun isMajorityOne(bit: Int): Boolean {
-        return backing[bit] > bitCount / 2
+    fun isMajorityOne(bit: Int, preferOne: Boolean): Boolean {
+        return if (preferOne) backing[bit] > bitCount / 2
+            else backing[bit] >= bitCount / 2
     }
 }
