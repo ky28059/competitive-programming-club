@@ -26,7 +26,7 @@ fun populateRangesTable(): Hashtable<String, List<IntRange>> {
         val r: List<IntRange> = ranges
             .split(" or ")
             .map { it.split("-").map { x -> x.toInt() } }
-            .map { (min, max) -> min.rangeTo(max) }
+            .map { (min, max) -> min..max }
         table[name] = r
     }
     return table

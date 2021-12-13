@@ -32,8 +32,8 @@ fun main() {
     }
 }
 
-// Check a board to see if it won, given the board, the called numbers (including the just called one),
-// and the just called number, returning the sum of the unmatched numbers of the board if it won and -1 otherwise.
+// Check a board to see if it won given the board and the set of all called numbers,
+// returning the sum of the unmatched numbers of the board if it won and -1 otherwise.
 fun checkBoard(board: List<List<Int>>, numbers: Set<Int>): Long {
     // Rows || Columns
     if (board.any { numbers.containsAll(it) } || board.indices.any { i -> numbers.containsAll(board.map { it[i] }) })

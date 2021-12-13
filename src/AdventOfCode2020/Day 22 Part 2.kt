@@ -15,15 +15,15 @@ fun main() {
 
 tailrec fun recursiveCombat(deck1: Queue<Int>, deck2: Queue<Int>, priorDeck1: MutableList<Queue<Int>>, priorDeck2: MutableList<Queue<Int>>): Int {
     for (i in priorDeck1.indices) {
-        if (priorDeck1[i] == deck1 && priorDeck2[i] == deck2) return calcDeckScore(deck1, deck1.size, 0)
+        if (priorDeck1[i] == deck1 && priorDeck2[i] == deck2) return calcDeckScore(deck1)
     }
 
     // Add current deck configurations to past configurations list
-    priorDeck1.add(LinkedList<Int>(deck1))
-    priorDeck2.add(LinkedList<Int>(deck2))
+    priorDeck1.add(LinkedList(deck1))
+    priorDeck2.add(LinkedList(deck2))
 
-    val p1card = deck1.poll() ?: return calcDeckScore(deck2, deck2.size, 0)
-    val p2card = deck2.poll() ?: return calcDeckScore(deck1, deck1.size, 0)
+    val p1card = deck1.poll() ?: return calcDeckScore(deck2)
+    val p2card = deck2.poll() ?: return calcDeckScore(deck1)
 
     calcRoundWinner(p1card, p2card, deck1, deck2)
 
@@ -38,8 +38,8 @@ tailrec fun innerRecursiveCombat(deck1: Queue<Int>, deck2: Queue<Int>, priorDeck
     }
 
     // Add current deck configurations to past configurations list
-    priorDeck1.add(LinkedList<Int>(deck1))
-    priorDeck2.add(LinkedList<Int>(deck2))
+    priorDeck1.add(LinkedList(deck1))
+    priorDeck2.add(LinkedList(deck2))
 
     val p1card = deck1.poll() ?: return false
     val p2card = deck2.poll() ?: return true
@@ -55,19 +55,12 @@ tailrec fun innerRecursiveCombat(deck1: Queue<Int>, deck2: Queue<Int>, priorDeck
 fun calcRoundWinner(p1card: Int, p2card: Int, deck1: Queue<Int>, deck2: Queue<Int>) {
     if (p1card <= deck1.size && p2card <= deck2.size) {
         // Get the next x cards in the queue
-        // Do this sloppily via for loops
-        val next1 = LinkedList<Int>(deck1); val next2 = LinkedList<Int>(deck2);
-
-        for (i in 0 until deck1.size - p1card) {
-            next1.removeLast()
-        }
-        for (i in 0 until deck2.size - p2card) {
-            next2.removeLast()
-        }
+        val next1 = LinkedList(deck1.toList().dropLast(deck1.size - p1card))
+        val next2 = LinkedList(deck2.toList().dropLast(deck2.size - p2card))
 
         // If both players cards are smaller than or equal to their decks,
         // the winner of the round is determined by another game of recursive combat
-        if (innerRecursiveCombat(LinkedList<Int>(next1), LinkedList<Int>(next2), mutableListOf(), mutableListOf())) {
+        if (innerRecursiveCombat(LinkedList(next1), LinkedList(next2), mutableListOf(), mutableListOf())) {
             deck1.add(p1card)
             deck1.add(p2card)
         } else {
