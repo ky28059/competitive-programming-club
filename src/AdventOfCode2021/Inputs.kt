@@ -9,3 +9,5 @@ val day4: List<String> = File("src/AdventOfCode2021/day4.in").readText().split(R
 val day5: List<List<String>> = File("src/AdventOfCode2021/day5.in").readLines().map { it.split(" -> ") }
 val day6: List<Int> = File("src/AdventOfCode2021/day6.in").readLines()[0].split(",").map { it.toInt() }
 val day7: List<Int> = File("src/AdventOfCode2021/day7.in").readLines()[0].split(",").map { it.toInt() }
+val day8: List<List<String>> = File("src/AdventOfCode2021/day8.in").readLines().map { it.split(" | ") }
+val day9: List<List<Int>> = File("src/AdventOfCode2021/day9.in").readLines().map { it.map { num -> num.toString().toInt() } }

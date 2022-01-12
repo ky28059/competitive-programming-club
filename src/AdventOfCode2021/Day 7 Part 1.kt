@@ -9,7 +9,7 @@ fun main() {
     val diffs = sortedSetOf<Int>()
 
     for (i in min..max)
-        diffs.add(day7.fold(0) { sum, j -> sum + abs(j - i) })
+        diffs.add(day7.sumBy { abs(it - i) })
 
     println(diffs.first())
 }
