@@ -1,12 +1,15 @@
 package AdventOfCode2021
 
+
 fun main() {
-    var prev = 0
     var increases = 0
-    for (reading in day1) {
+    var prev = day1[0]
+
+    for (i in 1 until day1.size) {
+        val reading = day1[i]
         if (reading > prev) increases++
         prev = reading
     }
 
-    println(increases - 1) // Remove first "increase"
+    println(increases)
 }

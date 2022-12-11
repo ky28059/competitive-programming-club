@@ -1,5 +1,6 @@
 package AdventOfCode2021
 
+
 fun main() {
     var increases = 0
     for (i in 0 until day1.size - 3) {
