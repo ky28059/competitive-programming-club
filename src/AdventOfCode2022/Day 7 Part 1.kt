@@ -37,7 +37,7 @@ fun createFileSystem(): FileSystem {
             workingDirectory = when (dir) {
                 "/" -> fileSystem.root
                 ".." -> workingDirectory.parent!!
-                else -> (workingDirectory.children.find { it.name == dir } as FileSystem.Directory)
+                else -> workingDirectory.children.find { it.name == dir } as FileSystem.Directory
             }
         }
     }
