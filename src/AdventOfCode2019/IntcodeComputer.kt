@@ -1,5 +1,6 @@
 package AdventOfCode2019
 
+import java.util.concurrent.ArrayBlockingQueue
 import kotlin.math.pow
 
 
@@ -104,4 +105,19 @@ fun runIntcodeProgram(
     }
 
     return memory.toList()
+}
+
+// An intcode computer that runs in a thread and inputs and outputs using blocking queues.
+class ThreadedIntcodeComputer(
+    private val program: List<Int>,
+    private val input: ArrayBlockingQueue<Int>,
+    private val output: ArrayBlockingQueue<Int>
+) : Thread() {
+    override fun run() {
+        runIntcodeProgram(
+            program,
+            input = { input.take() },
+            output = { output.put(it) }
+        )
+    }
 }

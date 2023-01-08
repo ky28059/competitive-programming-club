@@ -9,3 +9,5 @@ val day2 = File("$BASE_PATH/day2.in").readText().split(",").map { it.toInt() }
 
 
 val day5 = File("$BASE_PATH/day5.in").readText().split(",").map { it.toInt() }
+
+val day7 = File("$BASE_PATH/day7.in").readText().split(",").map { it.toInt() }
