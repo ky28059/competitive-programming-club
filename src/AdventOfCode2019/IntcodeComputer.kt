@@ -1,8 +1,9 @@
 package AdventOfCode2019
 
 
-fun intcodeComputer(instructions: List<Int>): List<Int> {
-    val memory = instructions.toMutableList()
+// Runs the given intcode program, returning its final memory after all instructions have completed.
+fun runIntcodeProgram(program: List<Int>): List<Int> {
+    val memory = program.toMutableList()
     var pointer = 0
 
     while (true) {

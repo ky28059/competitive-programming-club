@@ -6,6 +6,6 @@ fun main() {
     instrs[1] = 12
     instrs[2] = 2
 
-    val res = intcodeComputer(instrs.toList())
+    val res = runIntcodeProgram(instrs.toList())
     println(res[0])
 }

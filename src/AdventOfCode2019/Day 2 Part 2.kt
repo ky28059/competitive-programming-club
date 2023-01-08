@@ -9,7 +9,7 @@ fun main() {
             instrs[1] = i
             instrs[2] = j
 
-            val res = intcodeComputer(instrs.toList())
+            val res = runIntcodeProgram(instrs.toList())
             if (res[0] == 19690720) {
                 println(100 * i + j)
                 break
