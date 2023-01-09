@@ -13,7 +13,7 @@ fun getGammaEpsilon(src: List<String>, preferOne: Boolean = true): Pair<String, 
 
     for (bitStr in src) {
         for (i in bitStr.indices) {
-            store.inc(i, bitStr[i].toString().toInt())
+            store.inc(i, bitStr[i].digitToInt())
         }
     }
 

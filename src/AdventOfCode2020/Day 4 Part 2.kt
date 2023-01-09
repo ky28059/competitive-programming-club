@@ -27,7 +27,7 @@ fun main() {
                 "hcl" ->
                     if (currValid) currValid =
                         value[0] == '#' // First letter must be a #
-                        && value.substring(1, value.length).all { it in 'a'..'f' || it.toString().toIntOrNull() in 0..9 } // All characters after the # must either be a-f or 0-9
+                        && value.substring(1, value.length).all { it in 'a'..'f' || it.digitToIntOrNull() in 0..9 } // All characters after the # must either be a-f or 0-9
                         && value.length == 7 // Must be exactly 7 characters
                 "ecl" -> if (currValid) currValid = listOf("amb", "blu", "brn", "gry", "grn", "hzl", "oth").contains(value) // Must be one of the specified strings
                 "pid" -> if (currValid) currValid = value.toIntOrNull() != null && value.length == 9 // Must be a 9 digit valid integer

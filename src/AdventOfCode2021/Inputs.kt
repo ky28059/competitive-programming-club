@@ -12,4 +12,4 @@ val day5 = File("$BASE_PATH/day5.in").readLines().map { it.split(" -> ") }
 val day6 = File("$BASE_PATH/day6.in").readText().split(",").map { it.toInt() }
 val day7 = File("$BASE_PATH/day7.in").readText().split(",").map { it.toInt() }
 val day8 = File("$BASE_PATH/day8.in").readLines().map { it.split(" | ") }
-val day9 = File("$BASE_PATH/day9.in").readLines().map { it.map { num -> num.toString().toInt() } }
+val day9 = File("$BASE_PATH/day9.in").readLines().map { it.map { num -> num.digitToInt() } }
