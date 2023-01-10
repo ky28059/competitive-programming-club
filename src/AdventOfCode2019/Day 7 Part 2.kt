@@ -4,18 +4,18 @@ import java.util.concurrent.ArrayBlockingQueue
 
 
 fun main() {
-    var maxOutput = 0
+    var maxOutput = 0L
 
     for (i in 5..9) {
         for (j in (5..9).minus(i)) {
             for (k in (5..9).minus(setOf(i, j))) {
                 for (l in (5..9).minus(setOf(i, j, k))) {
                     for (m in (5..9).minus(setOf(i, j, k, l))) {
-                        val ampAQueue = ArrayBlockingQueue(10, true, listOf(i, 0))
-                        val ampBQueue = ArrayBlockingQueue(10, true, setOf(j))
-                        val ampCQueue = ArrayBlockingQueue(10, true, setOf(k))
-                        val ampDQueue = ArrayBlockingQueue(10, true, setOf(l))
-                        val ampEQueue = ArrayBlockingQueue(10, true, setOf(m))
+                        val ampAQueue = ArrayBlockingQueue(10, true, listOf(i.toLong(), 0))
+                        val ampBQueue = ArrayBlockingQueue(10, true, setOf(j.toLong()))
+                        val ampCQueue = ArrayBlockingQueue(10, true, setOf(k.toLong()))
+                        val ampDQueue = ArrayBlockingQueue(10, true, setOf(l.toLong()))
+                        val ampEQueue = ArrayBlockingQueue(10, true, setOf(m.toLong()))
 
                         val amps = listOf(
                             ThreadedIntcodeComputer(day7, ampAQueue, ampBQueue),
