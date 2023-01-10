@@ -2,21 +2,19 @@ package AdventOfCode2020
 
 
 fun main() {
-    var count = 0
+    println(day2.count { checkTobogganPassword(it) })
+}
 
-    for (pass in day2) {
-        val (policy, password) = pass.split(": ")
-        val (indices, letter) = policy.split(" ")
-        val (leftIndex, rightIndex) = indices.split("-").map { it.toInt() }
+// Checks a pass `range letter: password` for whether the password contains the given letter exactly once between
+// the two indices specified by the range.
+fun checkTobogganPassword(pass: String): Boolean {
+    val (policy, password) = pass.split(": ")
+    val (indices, letter) = policy.split(" ")
+    val (leftIndex, rightIndex) = indices.split("-").map { it.toInt() }
 
-        // Many ways of proceeding from here but I thought it'd be elegant-ish to toggle this boolean
-        // to determine whether there's only one occurrence
-        var valid = false
-        // Subtract 1 because indices are 1 indexed instead of 0 indexed
-        if (password[leftIndex - 1] == letter[0]) valid = !valid
-        if (password[rightIndex - 1] == letter[0]) valid = !valid
-        if (valid) count++
-    }
+    val left = password[leftIndex - 1]
+    val right = password[rightIndex - 1]
 
-    println(count)
+    // One of the indices must be the given letter, but not both
+    return (left == letter[0] || right == letter[0]) && left != right
 }

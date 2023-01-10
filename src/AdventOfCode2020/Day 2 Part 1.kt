@@ -2,20 +2,16 @@ package AdventOfCode2020
 
 
 fun main() {
-    var count = 0
+    println(day2.count { checkSledPassword(it) })
+}
 
-    // Loop through the 1000 passwords
-    for (pass in day2) {
-        val (policy, password) = pass.split(": ")
-        val (numAllowed, letter) = policy.split(" ")
-        val (min, max) = numAllowed.split("-").map { it.toInt() }
+// Checks a pass `range letter: password` for whether the password contains a count of the given letter
+// within the allowed range.
+fun checkSledPassword(pass: String): Boolean {
+    val (policy, password) = pass.split(": ")
+    val (numAllowed, letter) = policy.split(" ")
+    val (min, max) = numAllowed.split("-").map { it.toInt() }
 
-        // Split by queried letter to find out how many times it occurs
-        // Subtract one because splitting creates 1 extra item at the end
-        val occurrences = password.split(letter).size - 1
-        // If letter occurrences is between the amount allowed by policy, increment the valid password count
-        if (occurrences in min..max) count++
-    }
-
-    println(count)
+    val occurrences = password.count { it == letter[0] }
+    return occurrences in min..max
 }

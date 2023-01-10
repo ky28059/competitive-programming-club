@@ -5,6 +5,7 @@ My competitive programming code, from various competitions / miscellaneous event
 Java and Kotlin files are located in `/src`, and other languages are located in the root folder. In `src`, files are
 organized based on which event or competition they were a part of:
 
+- **AdventOfCode2019**: Kotlin solutions for [Advent of Code 2019](https://adventofcode.com/2019) *(completed after the fact)*.
 - **AdventOfCode2020**: Kotlin solutions for [Advent of Code 2020](https://adventofcode.com/2020).
 - **AdventOfCode2021**: Kotlin solutions for [Advent of Code 2021](https://adventofcode.com/2021).
 - **AdventOfCode2022**: Kotlin solutions for [Advent of Code 2022](https://adventofcode.com/2022).
