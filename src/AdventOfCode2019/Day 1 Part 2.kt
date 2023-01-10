@@ -2,7 +2,7 @@ package AdventOfCode2019
 
 
 fun main() {
-    println(day1.sumBy { calculateFuel(it) })
+    println(day1.sumOf { calculateFuel(it) })
 }
 
 // Recursively calculates the fuel required to transport a given mass.

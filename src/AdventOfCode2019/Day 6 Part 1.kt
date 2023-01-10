@@ -19,5 +19,5 @@ fun main() {
 fun sumOrbits(orbits: Map<String, MutableList<String>>, planet: String, level: Int = 1): Int {
     val orbiters = orbits[planet]
     if (orbiters.isNullOrEmpty()) return 0
-    return orbiters.size * level + orbiters.sumBy { sumOrbits(orbits, it, level + 1) }
+    return orbiters.size * level + orbiters.sumOf { sumOrbits(orbits, it, level + 1) }
 }

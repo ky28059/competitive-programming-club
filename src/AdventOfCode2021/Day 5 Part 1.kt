@@ -18,5 +18,5 @@ fun main() {
         }
     }
 
-    println(arr.sumBy { row -> row.count { it > 1 } })
+    println(arr.sumOf { row -> row.count { it > 1 } })
 }

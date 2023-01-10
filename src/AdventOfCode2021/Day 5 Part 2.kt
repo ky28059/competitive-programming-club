@@ -22,6 +22,5 @@ fun main() {
         }
     }
 
-    //println(arr.joinToString("") { it.joinToString("") { count -> if (count == 0) "." else count.toString() } + "\n" })
-    println(arr.sumBy { row -> row.count { it > 1 } })
+    println(arr.sumOf { row -> row.count { it > 1 } })
 }

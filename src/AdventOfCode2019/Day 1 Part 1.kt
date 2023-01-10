@@ -2,5 +2,5 @@ package AdventOfCode2019
 
 
 fun main() {
-    println(day1.sumBy { it / 3 - 2 })
+    println(day1.sumOf { it / 3 - 2 })
 }

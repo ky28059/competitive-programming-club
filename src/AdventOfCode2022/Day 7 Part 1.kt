@@ -12,8 +12,8 @@ fun sumSmallDirs(dir: FileSystem.Node): Int {
     if (dir.children.isEmpty()) return 0 // Better way of excluding files?
 
     val size = dir.getDiskSize()
-    return if (size <= 100000) dir.children.sumBy { sumSmallDirs(it) } + size
-    else dir.children.sumBy { sumSmallDirs(it) }
+    return if (size <= 100000) dir.children.sumOf { sumSmallDirs(it) } + size
+    else dir.children.sumOf { sumSmallDirs(it) }
 }
 
 // Creates and populates a `FileSystem` based on the given instructions.
@@ -56,7 +56,7 @@ class FileSystem {
 
     class Directory(name: String, parent: Directory?) : Node(name, parent) {
         override fun getDiskSize(): Int {
-            return children.sumBy { it.getDiskSize() }
+            return children.sumOf { it.getDiskSize() }
         }
     }
 

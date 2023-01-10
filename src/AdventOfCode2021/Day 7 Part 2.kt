@@ -10,7 +10,7 @@ fun main() {
 
     for (i in min..max)
         // Arithmetic sequence sum (1 + (j - i))((j - i) / 2)
-        diffs.add(day7.sumBy { (1 + abs(it - i)) * abs(it - i) / 2 })
+        diffs.add(day7.sumOf { (1 + abs(it - i)) * abs(it - i) / 2 })
 
     println(diffs.first())
 }

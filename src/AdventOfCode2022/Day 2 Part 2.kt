@@ -2,7 +2,7 @@ package AdventOfCode2022
 
 
 fun main() {
-    println(day2.sumBy { (o, r) ->
+    println(day2.sumOf { (o, r) ->
         when (r) {
             "X" -> 0
             "Y" -> 3
