@@ -2,7 +2,7 @@ import java.util.Scanner;
 import java.util.HashMap;
 
 // Bad logic somewhere, dies test 4
-public class leapingLizards {
+public class LeapingLizards {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
 
