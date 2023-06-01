@@ -12,7 +12,7 @@ checkFlag (i, n, prevColor)
 
 main = do
   line <- getLine
-  let n = read $ head $ words line :: Int
+  let n = read . head $ words line :: Int
 
   valid <- checkFlag (0, n, 'a')
-  putStrLn (if valid then "YES" else "NO")
+  putStrLn $ if valid then "YES" else "NO"

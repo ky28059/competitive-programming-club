@@ -7,4 +7,4 @@ main = do
   let c = last ids
   
   let duplicated = a == b || a == c || b == c
-  putStrLn (if duplicated then "YES" else "NO")
+  putStrLn $ if duplicated then "YES" else "NO"

@@ -12,4 +12,4 @@ main = do
   let n = read line
   
   let times = stationTimes (0, n, [])
-  putStrLn $ unwords (map show times)
+  putStrLn . unwords $ map show times

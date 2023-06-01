@@ -8,4 +8,4 @@ containsSockPair (l, detected)
 main = do
   line <- getLine
   socks <- getLine
-  putStrLn (if containsSockPair (socks, False) then "YES" else "NO")
+  putStrLn $ if containsSockPair (socks, False) then "YES" else "NO"
