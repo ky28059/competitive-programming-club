@@ -15,7 +15,7 @@ process.stdin.on('end', _ => {
         return string.trim();
     });
 
-    setqueries();
+    setQueries();
 });
 
 function readline() {
@@ -24,7 +24,7 @@ function readline() {
 
 
 // Dies to time limit on test 4
-function setqueries() {
+function setQueries() {
     const x = readline();
     const q = x[1];
 
