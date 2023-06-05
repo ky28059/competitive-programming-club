@@ -10,6 +10,6 @@ stationTimes (i, n, l)
 main = do
   line <- getLine
   let n = read line
-  
+
   let times = stationTimes (0, n, [])
   putStrLn . unwords $ map show times

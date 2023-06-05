@@ -1,8 +1,6 @@
 main = do
   line <- getLine
-  let nums = map read $ words line :: [Int]
-  let a = head nums
-  let b = last nums
+  let [a, b] = map read $ words line :: [Int]
   
   if rem a 2 == 0
     -- `a` is even:
