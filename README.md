@@ -12,6 +12,7 @@ are organized based on which event or competition they were a part of:
 - **Codeforces**: Kotlin submissions for contests on [codeforces.com](https://codeforces.com/profile/ky28059).
 - **CompetitiveProgrammingClub**: Various Java, Kotlin, and Haskell solutions for Competitive Programming Club problems.
 - **HPI**: Kotlin solutions for the [Harker Programming Invitational 2021](https://www.harkerprogrammingclub.org/copy-of-gpl-2020-results-1) as part of team `notlikeduck`.
+- **LeetCode**: Kotlin, TypeScript, and other solutions for problems on [leetcode.com](https://leetcode.com/problems).
 - **LIT2021**: Java solutions for the [Lexington Informatics Tournament 2021](https://lit.lhsmathcs.org/scoreboard2021) as part of team `qpwoeirut fan club`.
 - **ProCo2021**: Kotlin solutions for [Stanford ProCo 2021](https://www.stanfordacm.org/proco/pastContests).
 - **TeamsCodeSpring2021**: Java solutions for [TeamsCode Spring 2021](https://www.teamscode.org/contests/spring-2021/).
