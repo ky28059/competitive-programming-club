@@ -1,11 +1,11 @@
 package main
 
 import (
+	"./inputs"
 	"fmt"
 	"regexp"
 	"strconv"
 )
-import "./inputs"
 
 func main() {
 	r, _ := regexp.Compile("^.*?(\\d|one|two|three|four|five|six|seven|eight|nine)(?:.*(\\d|one|two|three|four|five|six|seven|eight|nine))?.*?$")
