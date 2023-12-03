@@ -2,7 +2,7 @@ package inputs
 
 import (
 	"os"
-	"strings"
+	"regexp"
 )
 
 const BasePath = "src/AdventOfCode2023"
@@ -12,5 +12,6 @@ func getInput(p string) string {
 	return string(dat)
 }
 
-var Day1 = strings.Split(getInput("day1.in"), "\n")
-var Day2 = strings.Split(getInput("day2.in"), "\n")
+var Day1 = regexp.MustCompile("\r?\n").Split(getInput("day1.in"), -1)
+var Day2 = regexp.MustCompile("\r?\n").Split(getInput("day2.in"), -1)
+var Day3 = regexp.MustCompile("\r?\n").Split(getInput("day3.in"), -1)

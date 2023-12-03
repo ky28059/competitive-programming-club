@@ -36,7 +36,7 @@ func isValidCubeAmount(cube string) bool {
 	c, color, _ := strings.Cut(cube, " ")
 	count, _ := strconv.Atoi(c)
 
-	switch strings.TrimSpace(color) {
+	switch color {
 	case "red":
 		if count > 12 {
 			return false
