@@ -27,8 +27,8 @@ func main() {
 			// Check adjacent cells for gears
 			gi, gj, adjacent := isAdjacentToGear(i, start, end)
 			if adjacent {
-				l := gears[string(rune(gi))+string(rune(gj))]
-				gears[string(rune(gi))+string(rune(gj))] = append(l, num)
+				l := gears[string(rune(gi))+","+string(rune(gj))]
+				gears[string(rune(gi))+","+string(rune(gj))] = append(l, num)
 			}
 		}
 	}
