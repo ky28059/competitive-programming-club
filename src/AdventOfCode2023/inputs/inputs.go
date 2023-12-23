@@ -20,3 +20,5 @@ var Day5 = regexp.MustCompile("\r?\n\r?\n\\w+-to-\\w+ map:\r?\n").Split(getInput
 var Day6 = regexp.MustCompile("\r?\n").Split(getInput("day6.in"), -1)
 
 var Day8 = regexp.MustCompile("\r?\n\r?\n").Split(getInput("day8.in"), -1)
+
+var Day10 = regexp.MustCompile("\r?\n").Split(getInput("day10.in"), -1)
