@@ -1,8 +1,7 @@
 import kotlin.math.max
 
-private fun readLn() = readLine()!! // string line
-private fun readInt() = readLn().toInt() // single int
-private fun readStrings() = readLn().split(" ") // list of strings
+private fun readInt() = readln().toInt() // single int
+private fun readStrings() = readln().split(" ") // list of strings
 private fun readLongs() = readStrings().map { it.toLong() } // list of longs
 
 // Codeforces Round 506

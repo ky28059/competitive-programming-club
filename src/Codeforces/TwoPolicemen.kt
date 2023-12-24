@@ -2,9 +2,8 @@ import kotlin.math.abs
 import kotlin.math.max
 import kotlin.math.min
 
-private fun readLn() = readLine()!! // string line
-private fun readInt() = readLn().toInt() // single int
-private fun readStrings() = readLn().split(" ") // list of strings
+private fun readInt() = readln().toInt() // single int
+private fun readStrings() = readln().split(" ") // list of strings
 private fun readInts() = readStrings().map { it.toInt() } // list of ints
 
 // Kotlin Heroes Episode 6

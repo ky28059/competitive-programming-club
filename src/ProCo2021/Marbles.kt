@@ -1,15 +1,14 @@
 import java.lang.Integer.max
 import java.lang.Integer.min
 
-private fun readLn() = readLine()!! // string line
-private fun readStrings() = readLn().split(" ") // list of strings
+private fun readStrings() = readln().split(" ") // list of strings
 private fun readInts() = readStrings().map { it.toInt() } // list of ints
 
 // Problem K
 // Accepted
 fun main() {
     val (n, k) = readInts()
-    val marbles = readLn()
+    val marbles = readln()
 
     val trimmed = marbles.trim('W')
     val initial = marbles.length - trimmed.length

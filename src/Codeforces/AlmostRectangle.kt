@@ -1,5 +1,4 @@
-private fun readLn() = readLine()!! // string line
-private fun readInt() = readLn().toInt() // single int
+private fun readInt() = readln().toInt() // single int
 
 // Codeforces Round 713
 // Question B
@@ -12,7 +11,7 @@ fun main() {
         val field = mutableListOf<String>()
 
         for (k in 0 until n) {
-            field.add(readLn())
+            field.add(readln())
         }
 
         val indices = field.map { it.indexOf('*') }.toMutableList()

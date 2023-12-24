@@ -1,5 +1,4 @@
-private fun readLn() = readLine()!! // string line
-private fun readInt() = readLn().toInt() // single int
+private fun readInt() = readln().toInt() // single int
 
 // Codeforces Round 719
 // Question A
@@ -9,7 +8,7 @@ fun main() {
 
     for (i in 0 until t) {
         val n = readInt()
-        val tasks = readLn()
+        val tasks = readln()
 
         if (tasks.length == 1) {
             println("YES")

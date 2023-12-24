@@ -1,9 +1,8 @@
-private fun readLn() = readLine()!! // string line
-private fun readInt() = readLn().toInt() // single int
+private fun readInt() = readln().toInt() // single int
 
 fun main() {
     val n = readInt()
-    val str = readLn()
+    val str = readln()
 
-    println(if (str.toLowerCase().toList().containsAll(('a'..'z').toList())) "YES" else "NO")
+    println(if (str.lowercase().toList().containsAll(('a'..'z').toList())) "YES" else "NO")
 }

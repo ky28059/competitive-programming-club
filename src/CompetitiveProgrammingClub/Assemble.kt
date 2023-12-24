@@ -1,7 +1,5 @@
-private fun readLn() = readLine()!! // string line
-
 fun main() {
-    val str = readLn()
+    val str = readln()
     val chars = mutableMapOf<Char, Int>()
 
     for (i in str) {

@@ -1,6 +1,5 @@
-private fun readLn() = readLine()!! // string line
-private fun readInt() = readLn().toInt() // single int
-private fun readStrings() = readLn().split(" ") // list of strings
+private fun readInt() = readln().toInt() // single int
+private fun readStrings() = readln().split(" ") // list of strings
 private fun readInts() = readStrings().map { it.toInt() } // list of ints
 
 // Codeforces LATOKEN Round 1
@@ -13,7 +12,7 @@ fun main() {
         val (n, m) = readInts()
         val grid = mutableListOf<List<String>>()
 
-        for (j in 0 until n) grid.add(readLn().split("").dropLast(1).drop(1))
+        for (j in 0 until n) grid.add(readln().split("").dropLast(1).drop(1))
         for (j in 0 until n) {
             val row = grid[j]
 

@@ -1,10 +1,8 @@
-private fun readLn() = readLine()!! // string line
-
 // Codeforces Round 447
 // Problem A
 // Post contest, accepted
 fun main() {
-    val str = readLn()
+    val str = readln()
     var sum = 0
     val prefixSums = IntArray(str.length)
 

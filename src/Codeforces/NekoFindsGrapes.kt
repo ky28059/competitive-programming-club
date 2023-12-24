@@ -1,7 +1,6 @@
 import kotlin.math.min
 
-private fun readLn() = readLine()!! // string line
-private fun readStrings() = readLn().split(" ") // list of strings
+private fun readStrings() = readln().split(" ") // list of strings
 private fun readInts() = readStrings().map { it.toInt() } // list of ints
 
 // Codeforces Round 554

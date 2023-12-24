@@ -1,6 +1,5 @@
-private fun readLn() = readLine()!! // string line
-private fun readInt() = readLn().toInt() // single int
-private fun readLong() = readLn().toLong() // single long
+private fun readInt() = readln().toInt() // single int
+private fun readLong() = readln().toLong() // single long
 
 // Codeforces Round 718
 // Question A

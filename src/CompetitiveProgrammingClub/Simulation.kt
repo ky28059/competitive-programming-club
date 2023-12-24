@@ -1,10 +1,9 @@
-private fun readLn() = readLine()!! // string line
-private fun readStrings() = readLn().split(" ") // list of strings
+private fun readStrings() = readln().split(" ") // list of strings
 private fun readInts() = readStrings().map { it.toInt() } // list of ints
 
 fun main() {
     val (n, m) = readInts()
-    var str = readLn()
+    var str = readln()
 
     for (i in 0 until m) {
         val (ls, rs, c1, c2) = readStrings()
