@@ -2,18 +2,14 @@ package main
 
 import (
 	"./inputs"
+	. "./util"
 	"fmt"
 	"regexp"
 )
 
-type node struct {
-	left  string
-	right string
-}
-
 func main() {
-	nodes := make(map[string]node)
-	var currentNodes []node
+	nodes := make(map[string]Node)
+	var currentNodes []Node
 
 	lineRegex := regexp.MustCompile("(\\w+) = \\((\\w+), (\\w+)\\)")
 	lines := regexp.MustCompile("\r\n?").Split(inputs.Day8[1], -1)
@@ -21,9 +17,9 @@ func main() {
 		matches := lineRegex.FindSubmatch([]byte(line))
 
 		nodeName := string(matches[1])
-		newNode := node{
-			left:  string(matches[2]),
-			right: string(matches[3]),
+		newNode := Node{
+			Left:  string(matches[2]),
+			Right: string(matches[3]),
 		}
 		nodes[nodeName] = newNode
 
@@ -39,9 +35,9 @@ func main() {
 
 		allMatch := true
 		for i, current := range currentNodes {
-			nextStr := current.left
+			nextStr := current.Left
 			if string(instr) == "R" {
-				nextStr = current.right
+				nextStr = current.Right
 			}
 
 			if nextStr[len(nextStr)-1] != 'Z' {

@@ -3,6 +3,7 @@ package main
 import (
 	"./inputs"
 	"./util"
+	. "./util"
 	"fmt"
 	"os"
 )
@@ -18,10 +19,10 @@ Outer:
 	for i, l := range inputs.Day10 {
 		for j, c := range l {
 			if c == 'S' {
-				paintMainLoopPoints(m, make([]point, 0), i+1, j, i, j)
-				paintMainLoopPoints(m, make([]point, 0), i-1, j, i, j)
-				paintMainLoopPoints(m, make([]point, 0), i, j+1, i, j)
-				paintMainLoopPoints(m, make([]point, 0), i, j-1, i, j)
+				paintMainLoopPoints(m, make([]Point, 0), i+1, j, i, j)
+				paintMainLoopPoints(m, make([]Point, 0), i-1, j, i, j)
+				paintMainLoopPoints(m, make([]Point, 0), i, j+1, i, j)
+				paintMainLoopPoints(m, make([]Point, 0), i, j-1, i, j)
 
 				// Write main path to file for debugging
 				f, _ := os.Create(inputs.BasePath + "/day10.out")
@@ -62,16 +63,11 @@ Outer:
 	fmt.Println(sum)
 }
 
-type point struct {
-	i int
-	j int
-}
-
-func paintMainLoopPoints(m [][]bool, points []point, i, j, pi, pj int) {
+func paintMainLoopPoints(m [][]bool, points []Point, i, j, pi, pj int) {
 	if inputs.Day10[i][j] == 'S' {
 		// Paint all points now that the loop is completed
 		for _, p := range points {
-			m[p.i][p.j] = true
+			m[p.I][p.J] = true
 		}
 		m[i][j] = true
 		return
@@ -83,54 +79,54 @@ func paintMainLoopPoints(m [][]bool, points []point, i, j, pi, pj int) {
 		case j != pj:
 			return
 		case i > pi:
-			paintMainLoopPoints(m, append(points, point{i, j}), i+1, j, i, j)
+			paintMainLoopPoints(m, append(points, Point{I: i, J: j}), i+1, j, i, j)
 		default:
-			paintMainLoopPoints(m, append(points, point{i, j}), i-1, j, i, j)
+			paintMainLoopPoints(m, append(points, Point{I: i, J: j}), i-1, j, i, j)
 		}
 	case '-':
 		switch {
 		case i != pi:
 			return
 		case j > pj:
-			paintMainLoopPoints(m, append(points, point{i, j}), i, j+1, i, j)
+			paintMainLoopPoints(m, append(points, Point{I: i, J: j}), i, j+1, i, j)
 		default:
-			paintMainLoopPoints(m, append(points, point{i, j}), i, j-1, i, j)
+			paintMainLoopPoints(m, append(points, Point{I: i, J: j}), i, j-1, i, j)
 		}
 	case 'L': // (0, 0) -> (0, 1) <- (1, 1)
 		switch {
 		case i != pi+1 && j != pj-1:
 			return
 		case i == pi+1:
-			paintMainLoopPoints(m, append(points, point{i, j}), i, j+1, i, j)
+			paintMainLoopPoints(m, append(points, Point{I: i, J: j}), i, j+1, i, j)
 		default:
-			paintMainLoopPoints(m, append(points, point{i, j}), i-1, j, i, j)
+			paintMainLoopPoints(m, append(points, Point{I: i, J: j}), i-1, j, i, j)
 		}
 	case 'J': // (1, 0) -> (1, 1) <- (0, 1)
 		switch {
 		case i != pi+1 && j != pj+1:
 			return
 		case i == pi+1:
-			paintMainLoopPoints(m, append(points, point{i, j}), i, j-1, i, j)
+			paintMainLoopPoints(m, append(points, Point{I: i, J: j}), i, j-1, i, j)
 		default:
-			paintMainLoopPoints(m, append(points, point{i, j}), i-1, j, i, j)
+			paintMainLoopPoints(m, append(points, Point{I: i, J: j}), i-1, j, i, j)
 		}
 	case 'F': // (1, 0) -> (0, 0) <- (0, 1)
 		switch {
 		case i != pi-1 && j != pj-1:
 			return
 		case i == pi-1:
-			paintMainLoopPoints(m, append(points, point{i, j}), i, j+1, i, j)
+			paintMainLoopPoints(m, append(points, Point{I: i, J: j}), i, j+1, i, j)
 		default:
-			paintMainLoopPoints(m, append(points, point{i, j}), i+1, j, i, j)
+			paintMainLoopPoints(m, append(points, Point{I: i, J: j}), i+1, j, i, j)
 		}
 	case '7': // (0, 0) -> (1, 0) <- (1, 1)
 		switch {
 		case i != pi-1 && j != pj+1:
 			return
 		case i == pi-1:
-			paintMainLoopPoints(m, append(points, point{i, j}), i, j-1, i, j)
+			paintMainLoopPoints(m, append(points, Point{I: i, J: j}), i, j-1, i, j)
 		default:
-			paintMainLoopPoints(m, append(points, point{i, j}), i+1, j, i, j)
+			paintMainLoopPoints(m, append(points, Point{I: i, J: j}), i+1, j, i, j)
 		}
 	default:
 		return
