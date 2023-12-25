@@ -2,123 +2,119 @@ package main
 
 import (
 	"./inputs"
-	"./util"
 	. "./util"
 	"fmt"
 )
 
 func main() {
-	// https://stackoverflow.com/questions/39804861/what-is-a-concise-way-to-create-a-2d-slice-in-go
-	m := make([][]bool, len(inputs.Day10))
-	for i := range m {
-		m[i] = make([]bool, len(inputs.Day10[0]))
-	}
-
-Outer:
 	for i, l := range inputs.Day10 {
 		for j, c := range l {
 			if c == 'S' {
-				paintMainLoopPoints(m, make([]Point, 0), i+1, j, i, j)
-				paintMainLoopPoints(m, make([]Point, 0), i-1, j, i, j)
-				paintMainLoopPoints(m, make([]Point, 0), i, j+1, i, j)
-				paintMainLoopPoints(m, make([]Point, 0), i, j-1, i, j)
+				points := getMainLoopPoints(make([]Point, 0), i+1, j, i, j)
+				if len(points) == 0 {
+					points = getMainLoopPoints(make([]Point, 0), i-1, j, i, j)
+				}
+				if len(points) == 0 {
+					points = getMainLoopPoints(make([]Point, 0), i, j+1, i, j)
+				}
+				if len(points) == 0 {
+					points = getMainLoopPoints(make([]Point, 0), i, j-1, i, j)
+				}
+
+				fmt.Println(len(points))
 
 				// Write main path to file for debugging
-				util.WriteMapFile(m, "day10.out")
+				// util.WriteMapFile(m, "day10.out")
 
-				break Outer
+				// Append first two points for cyclicity
+				points = append(points, points[0:1]...)
+
+				area := 0
+				for i := 2; i < len(points); i++ {
+					p1, p2, p3 := points[i-2], points[i-1], points[i]
+
+					delta := 0
+					if p2.J > p1.J {
+						delta = p2.I + 1
+					} else if p2.J < p1.J {
+						delta = -p2.I
+					}
+
+					// If going vertically afterward, double the delta to account for points
+					// being in the center of the polygon.
+					if p3.I != p2.I {
+						area += delta
+					}
+					area += delta
+				}
+				fmt.Println(area)
+				return
 			}
 		}
 	}
-
-	// TODO: account for "squeezing between pipes"
-	sum := 0
-	for i, l := range m {
-		inside := false
-		temp := 0
-
-		for j := range l {
-			switch {
-			case m[i][j] && !inside: // rising edge
-				inside = true
-			case m[i][j] && inside: // falling edge
-				inside = false
-				sum += temp
-				temp = 0
-			case inside:
-				temp++
-			}
-		}
-	}
-	fmt.Println(sum)
 }
 
-func paintMainLoopPoints(m [][]bool, points []Point, i, j, pi, pj int) {
+func getMainLoopPoints(points []Point, i, j, pi, pj int) []Point {
 	if inputs.Day10[i][j] == 'S' {
-		// Paint all points now that the loop is completed
-		for _, p := range points {
-			m[p.I][p.J] = true
-		}
-		m[i][j] = true
-		return
+		return append(points, Point{I: i, J: j})
 	}
 
 	switch inputs.Day10[i][j] {
 	case '|':
 		switch {
 		case j != pj:
-			return
+			return make([]Point, 0)
 		case i > pi:
-			paintMainLoopPoints(m, append(points, Point{I: i, J: j}), i+1, j, i, j)
+			return getMainLoopPoints(append(points, Point{I: i, J: j}), i+1, j, i, j)
 		default:
-			paintMainLoopPoints(m, append(points, Point{I: i, J: j}), i-1, j, i, j)
+			return getMainLoopPoints(append(points, Point{I: i, J: j}), i-1, j, i, j)
 		}
 	case '-':
 		switch {
 		case i != pi:
-			return
+			return make([]Point, 0)
 		case j > pj:
-			paintMainLoopPoints(m, append(points, Point{I: i, J: j}), i, j+1, i, j)
+			return getMainLoopPoints(append(points, Point{I: i, J: j}), i, j+1, i, j)
 		default:
-			paintMainLoopPoints(m, append(points, Point{I: i, J: j}), i, j-1, i, j)
+			return getMainLoopPoints(append(points, Point{I: i, J: j}), i, j-1, i, j)
 		}
 	case 'L': // (0, 0) -> (0, 1) <- (1, 1)
 		switch {
 		case i != pi+1 && j != pj-1:
-			return
+			return make([]Point, 0)
 		case i == pi+1:
-			paintMainLoopPoints(m, append(points, Point{I: i, J: j}), i, j+1, i, j)
+			return getMainLoopPoints(append(points, Point{I: i, J: j}), i, j+1, i, j)
 		default:
-			paintMainLoopPoints(m, append(points, Point{I: i, J: j}), i-1, j, i, j)
+			return getMainLoopPoints(append(points, Point{I: i, J: j}), i-1, j, i, j)
 		}
 	case 'J': // (1, 0) -> (1, 1) <- (0, 1)
 		switch {
 		case i != pi+1 && j != pj+1:
-			return
+			return make([]Point, 0)
 		case i == pi+1:
-			paintMainLoopPoints(m, append(points, Point{I: i, J: j}), i, j-1, i, j)
+			return getMainLoopPoints(append(points, Point{I: i, J: j}), i, j-1, i, j)
 		default:
-			paintMainLoopPoints(m, append(points, Point{I: i, J: j}), i-1, j, i, j)
+			return getMainLoopPoints(append(points, Point{I: i, J: j}), i-1, j, i, j)
 		}
 	case 'F': // (1, 0) -> (0, 0) <- (0, 1)
 		switch {
 		case i != pi-1 && j != pj-1:
-			return
+			return make([]Point, 0)
 		case i == pi-1:
-			paintMainLoopPoints(m, append(points, Point{I: i, J: j}), i, j+1, i, j)
+			return getMainLoopPoints(append(points, Point{I: i, J: j}), i, j+1, i, j)
 		default:
-			paintMainLoopPoints(m, append(points, Point{I: i, J: j}), i+1, j, i, j)
+			return getMainLoopPoints(append(points, Point{I: i, J: j}), i+1, j, i, j)
 		}
 	case '7': // (0, 0) -> (1, 0) <- (1, 1)
 		switch {
 		case i != pi-1 && j != pj+1:
-			return
+			return make([]Point, 0)
 		case i == pi-1:
-			paintMainLoopPoints(m, append(points, Point{I: i, J: j}), i, j-1, i, j)
+			return getMainLoopPoints(append(points, Point{I: i, J: j}), i, j-1, i, j)
 		default:
-			paintMainLoopPoints(m, append(points, Point{I: i, J: j}), i+1, j, i, j)
+			return getMainLoopPoints(append(points, Point{I: i, J: j}), i+1, j, i, j)
 		}
 	default:
-		return
+		return make([]Point, 0)
 	}
 }
