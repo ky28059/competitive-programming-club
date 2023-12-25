@@ -40,6 +40,7 @@ Outer:
 		}
 	}
 
+	// TODO: account for "squeezing between pipes"
 	sum := 0
 	for i, l := range m {
 		inside := false

@@ -33,24 +33,25 @@ func main() {
 	}
 
 	// TODO: not bruteforce algorithm
-	for i := 0; ; i++ {
-		instr := inputs.Day8[0][i%len(inputs.Day8[0])]
+	for i := int64(0); ; i++ {
+		fmt.Println(i)
+		instr := inputs.Day8[0][i%int64(len(inputs.Day8[0]))]
 
-		found := 0
+		allMatch := true
 		for i, current := range currentNodes {
 			nextStr := current.left
 			if string(instr) == "R" {
 				nextStr = current.right
 			}
 
-			if nextStr[len(nextStr)-1] == 'Z' {
-				found++
+			if nextStr[len(nextStr)-1] != 'Z' {
+				allMatch = false
 			}
 
 			currentNodes[i] = nodes[nextStr]
 		}
 
-		if found == len(currentNodes) {
+		if allMatch {
 			fmt.Println(i + 1)
 			break
 		}
