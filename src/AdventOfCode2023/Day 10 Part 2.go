@@ -5,7 +5,6 @@ import (
 	"./util"
 	. "./util"
 	"fmt"
-	"os"
 )
 
 func main() {
@@ -25,16 +24,7 @@ Outer:
 				paintMainLoopPoints(m, make([]Point, 0), i, j-1, i, j)
 
 				// Write main path to file for debugging
-				f, _ := os.Create(inputs.BasePath + "/day10.out")
-				for _, t := range m {
-					f.Write(append(util.Map(t, func(t bool) byte {
-						if t {
-							return '#'
-						} else {
-							return '.'
-						}
-					}), '\n'))
-				}
+				util.WriteMapFile(m, "day10.out")
 
 				break Outer
 			}
