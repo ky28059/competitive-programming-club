@@ -2,14 +2,14 @@ package main
 
 import (
 	"./inputs"
+	"./util"
 	"fmt"
 	"strconv"
 	"strings"
 )
 
 func main() {
-	sum := 0
-	for _, line := range inputs.Day2 {
+	fmt.Println(util.SumOf(inputs.Day2, func(line string) int {
 		_, after, _ := strings.Cut(line, ": ")
 		subsets := strings.Split(after, "; ")
 
@@ -32,8 +32,6 @@ func main() {
 			}
 		}
 
-		sum += rMax * gMax * bMax
-	}
-
-	fmt.Println(sum)
+		return rMax * gMax * bMax
+	}))
 }

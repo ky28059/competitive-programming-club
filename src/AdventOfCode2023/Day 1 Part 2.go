@@ -2,6 +2,7 @@ package main
 
 import (
 	"./inputs"
+	"./util"
 	"fmt"
 	"regexp"
 	"strconv"
@@ -10,20 +11,18 @@ import (
 func main() {
 	r, _ := regexp.Compile("^.*?(\\d|one|two|three|four|five|six|seven|eight|nine)(?:.*(\\d|one|two|three|four|five|six|seven|eight|nine))?.*?$")
 
-	sum := 0
-	for _, line := range inputs.Day1 {
-		matches := r.FindSubmatch([]byte(line))
+	fmt.Println(util.SumOf(inputs.Day1, func(line string) int {
+		matches := r.FindStringSubmatch(line)
 
-		first := parseDigit(string(matches[1]))
-		second := parseDigit(string(matches[2]))
+		first := parseDigit(matches[1])
+		second := parseDigit(matches[2])
 		if second == "" {
 			second = first
 		}
 
 		s, _ := strconv.Atoi(first + second)
-		sum += s
-	}
-	fmt.Println(sum)
+		return s
+	}))
 }
 
 func parseDigit(d string) string {

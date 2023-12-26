@@ -7,7 +7,6 @@ import (
 )
 
 func main() {
-Outer:
 	for i, l := range inputs.Day10 {
 		for j, c := range l {
 			if c == 'S' {
@@ -23,7 +22,7 @@ Outer:
 
 				fmt.Println(int(math.Ceil(float64(max(down, up, right, left)) / 2)))
 
-				break Outer
+				return
 			}
 		}
 	}

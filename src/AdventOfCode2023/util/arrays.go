@@ -35,3 +35,14 @@ func FindIndex[T any](ss []T, test func(T) bool) int {
 	}
 	return -1
 }
+
+type Number interface {
+	~int | ~int8 | ~int16 | ~int32 | ~int64 | ~uint | ~uint8 | ~uint16 | ~uint32 | ~uint64 | ~float32 | ~float64
+}
+
+func SumOf[T any, V Number](ss []T, fn func(T) V) (sum V) {
+	for _, s := range ss {
+		sum += fn(s)
+	}
+	return
+}

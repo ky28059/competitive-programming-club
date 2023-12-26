@@ -7,9 +7,7 @@ import (
 )
 
 func main() {
-	sum := int32(0)
-	for _, s := range inputs.Day15 {
-		sum += util.LabelHash(s)
-	}
-	fmt.Println(sum)
+	fmt.Println(util.SumOf(inputs.Day15, func(s string) int32 {
+		return util.LabelHash(s)
+	}))
 }
