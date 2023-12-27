@@ -46,3 +46,18 @@ func SumOf[T any, V Number](ss []T, fn func(T) V) (sum V) {
 	}
 	return
 }
+
+func AllSame[T comparable](ss []T) bool {
+	if len(ss) == 0 {
+		return true
+	}
+
+	prev := ss[0]
+	for i := 1; i < len(ss); i++ {
+		if ss[i] != prev {
+			return false
+		}
+		prev = ss[i]
+	}
+	return true
+}
