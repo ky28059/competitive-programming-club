@@ -2,6 +2,7 @@ package main
 
 import (
 	"./inputs"
+	"./util"
 	. "./util"
 	"fmt"
 )
@@ -21,33 +22,12 @@ func main() {
 					points = getMainLoopPoints(make([]Point, 0), i, j-1, i, j)
 				}
 
-				fmt.Println(len(points))
-
 				// Write main path to file for debugging
 				// util.WriteMapFile(m, "day10.out")
 
-				// Append first two points for cyclicity
-				points = append(points, points[0:1]...)
-
-				area := 0
-				for i := 2; i < len(points); i++ {
-					p1, p2, p3 := points[i-2], points[i-1], points[i]
-
-					delta := 0
-					if p2.J > p1.J {
-						delta = p2.I + 1
-					} else if p2.J < p1.J {
-						delta = -p2.I
-					}
-
-					// If going vertically afterward, double the delta to account for points
-					// being in the center of the polygon.
-					if p3.I != p2.I {
-						area += delta
-					}
-					area += delta
-				}
-				fmt.Println(area)
+				area := util.Shoelace(points)
+				fmt.Println("Polygon area:", area, "| Pipe length:", len(points))
+				fmt.Println(area - len(points))
 				return
 			}
 		}
