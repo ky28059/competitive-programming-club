@@ -7,7 +7,7 @@ import (
 )
 
 func main() {
-	var galaxies []Point
+	var galaxies []Point[int]
 	var emptyRows []int
 	var emptyCols []int
 
@@ -16,7 +16,7 @@ func main() {
 		for j, c := range line {
 			// Mark all galaxies
 			if c == '#' {
-				galaxies = append(galaxies, Point{I: i, J: j})
+				galaxies = append(galaxies, Point[int]{I: i, J: j})
 				empty = false
 			}
 		}

@@ -1,8 +1,8 @@
 package util
 
-type Point struct {
-	I int
-	J int
+type Point[T Number] struct {
+	I T
+	J T
 }
 
 type Node struct {

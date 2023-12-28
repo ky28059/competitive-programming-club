@@ -17,7 +17,7 @@ func main() {
 
 	// Launch beam routines in a goroutine (that itself launches goroutines).
 	// Uses goroutine spawning because regular recursion reaches stack overflow on actual input.
-	c := make(chan Point)
+	c := make(chan Point[int])
 	go followBeam(c, 0, 0, 0, 1)
 
 	// Continuously pull points from the channel, blow up after 5 seconds to give routines enough time to run
@@ -46,11 +46,11 @@ func main() {
 	}
 }
 
-func followBeam(c chan Point, i, j, iDir, jDir int) {
+func followBeam(c chan Point[int], i, j, iDir, jDir int) {
 	if i < 0 || i >= len(inputs.Day16) || j < 0 || j >= len(inputs.Day16[0]) {
 		return
 	}
-	c <- Point{I: i, J: j}
+	c <- Point[int]{I: i, J: j}
 
 	// Check special objects
 	switch inputs.Day16[i][j] {
