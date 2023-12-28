@@ -31,3 +31,4 @@ var Day15 = strings.Split(getInput("day15.in"), ",")
 var Day16 = regexp.MustCompile("\r?\n").Split(getInput("day16.in"), -1)
 
 var Day18 = regexp.MustCompile("\r?\n").Split(getInput("day18.in"), -1)
+var Day19 = regexp.MustCompile("\r?\n\r?\n").Split(getInput("day19.in"), -1)
