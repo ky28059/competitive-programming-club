@@ -61,3 +61,14 @@ func AllSame[T comparable](ss []T) bool {
 	}
 	return true
 }
+
+func CountTrue(ss [][]bool) (sum int) {
+	for _, row := range ss {
+		for _, b := range row {
+			if b {
+				sum++
+			}
+		}
+	}
+	return
+}
