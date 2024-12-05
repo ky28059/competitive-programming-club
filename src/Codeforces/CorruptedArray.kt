@@ -3,7 +3,7 @@ private fun readStrings() = readln().split(" ") // list of strings
 private fun readInts() = readStrings().map { it.toInt() } // list of ints
 
 // Codeforces Round 713
-// Question D
+// Problem D
 // Wrong answer on test 2
 fun main() {
     val t = readInt()

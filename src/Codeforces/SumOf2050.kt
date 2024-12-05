@@ -2,7 +2,7 @@ private fun readInt() = readln().toInt() // single int
 private fun readLong() = readln().toLong() // single long
 
 // Codeforces Round 718
-// Question A
+// Problem A
 // Accepted
 fun main() {
     val t = readInt()

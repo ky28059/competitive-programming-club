@@ -1,5 +1,7 @@
 private fun readInt() = readln().toInt()
 
+// ECNA 2023
+// Problem I
 fun main() {
     val t = readInt()
     for (i in 0 until t) runTest()

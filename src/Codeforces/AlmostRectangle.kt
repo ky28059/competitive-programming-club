@@ -1,7 +1,7 @@
 private fun readInt() = readln().toInt() // single int
 
 // Codeforces Round 713
-// Question B
+// Problem B
 // Accepted
 fun main() {
     val t = readInt()

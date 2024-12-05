@@ -3,7 +3,7 @@ import kotlin.math.sqrt
 private fun readInt() = readln().toInt() // single int
 
 // Codeforces Global Round 14
-// Question B
+// Problem B
 // Accepted
 fun main() {
     val t = readInt()

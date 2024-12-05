@@ -7,8 +7,8 @@ private fun readStrings() = readln().split(" ") // list of strings
 private fun readInts() = readStrings().map { it.toInt() } // list of ints
 
 // Kotlin Heroes Episode 6
-// Question C
-// Verdict: Not submitted (unfinished)
+// Problem C
+// Not submitted (unfinished)
 fun main() {
     val t = readInt()
 

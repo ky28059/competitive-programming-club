@@ -5,7 +5,7 @@ private fun readStrings() = readln().split(" ") // list of strings
 private fun readInts() = readStrings().map { it.toInt() } // list of ints
 
 // Codeforces Global Round 14
-// Question C
+// Problem C
 // TLE on Pretest 5
 fun main() {
     val t = readInt()
