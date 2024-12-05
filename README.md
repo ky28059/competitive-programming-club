@@ -10,6 +10,7 @@ are organized based on which event or competition they were a part of:
 - **AdventOfCode2021**: Kotlin solutions for [Advent of Code 2021](https://adventofcode.com/2021).
 - **AdventOfCode2022**: Kotlin solutions for [Advent of Code 2022](https://adventofcode.com/2022).
 - **AdventOfCode2023**: Go solutions for [Advent of Code 2023](https://adventofcode.com/2023).
+- **AdventOfCode2024**: Kotlin solutions for [Advent of Code 2024](https://adventofcode.com/2024).
 - **Codeforces**: Kotlin submissions for contests on [codeforces.com](https://codeforces.com/profile/ky28059).
 - **CompetitiveProgrammingClub**: Various Java, Kotlin, and Haskell solutions for Competitive Programming Club problems.
 - **HPI**: Kotlin solutions for the [Harker Programming Invitational 2021](https://www.harkerprogrammingclub.org/copy-of-gpl-2020-results-1) as part of team `notlikeduck`.
