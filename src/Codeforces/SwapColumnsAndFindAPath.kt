@@ -5,7 +5,7 @@ private fun readInt() = readln().toInt()
 private fun readStrings() = readln().split(" ")
 private fun readInts() = readStrings().map { it.toInt() }
 
-// Codeforces Round 990
+// Codeforces Round 990 (Div. 1)
 // Problem A
 // Post contest, accepted
 fun main() {
