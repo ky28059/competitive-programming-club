@@ -9,5 +9,5 @@ val day2 = File("$BASE_PATH/day2.in").readLines().map { it.split(" ").map { i ->
 val day3 = File("$BASE_PATH/day3.in").readText()
 
 
-
+val day6 = File("$BASE_PATH/day6.in").readLines()
 val day7 = File("$BASE_PATH/day7.in").readLines().map { it.split(": ").let { (t, n) -> t.toLong() to n.split(" ").map { i -> i.toLong() } } }
