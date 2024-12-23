@@ -14,3 +14,9 @@ val day7 = File("$BASE_PATH/day7.in").readLines().map { it.split(": ").let { (t,
 
 
 val day10 = File("$BASE_PATH/day10.in").readLines()
+
+
+
+
+
+val day16 = File("$BASE_PATH/day16.in").readLines()

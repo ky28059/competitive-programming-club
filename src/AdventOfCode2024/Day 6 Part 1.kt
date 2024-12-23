@@ -16,12 +16,7 @@ fun main() {
         if (newRow >= day6.size || newCol >= day6[0].length) break
 
         while (day6[newRow][newCol] == '#') {
-            dir = when (dir) {
-                (0 to -1) -> 1 to 0
-                (1 to 0) -> 0 to 1
-                (0 to 1) -> (-1) to 0
-                else -> 0 to -1
-            }
+            dir = dir.rotateDeg(90.0)
             newRow = row + dir.second
             newCol = col + dir.first
         }
