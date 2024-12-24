@@ -20,3 +20,4 @@ val day10 = File("$BASE_PATH/day10.in").readLines()
 
 
 val day16 = File("$BASE_PATH/day16.in").readLines()
+val day17 = File("$BASE_PATH/day17.in").readText()
