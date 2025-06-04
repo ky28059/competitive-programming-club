@@ -12,7 +12,7 @@ val day5 = File("$BASE_PATH/day5.in").readText().split(Regex("\r?\n\r?\n")).let 
 val day6 = File("$BASE_PATH/day6.in").readLines()
 val day7 = File("$BASE_PATH/day7.in").readLines().map { it.split(": ").let { (t, n) -> t.toLong() to n.split(" ").map { i -> i.toLong() } } }
 
-
+val day9 = File("$BASE_PATH/day9.in").readText().map { it.digitToInt() }
 val day10 = File("$BASE_PATH/day10.in").readLines()
 
 
