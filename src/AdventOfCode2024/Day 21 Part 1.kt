@@ -30,7 +30,10 @@ fun main() {
         dist[u] = mutableMapOf()
 
         for (v in vertices) {
-            if (u == v) dist[u]!![v] = 0
+            if (u == v) {
+                dist[u]!![v] = 0
+                continue
+            }
 
             val (u1, u2, u3) = u
             val (v1, v2, v3) = v
