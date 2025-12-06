@@ -7,3 +7,4 @@ const val BASE_PATH = "src/AdventOfCode2025"
 val day1 = File("$BASE_PATH/day1.in").readLines()
 
 val day3 = File("$BASE_PATH/day3.in").readLines()
+val day4 = File("$BASE_PATH/day4.in").readLines()
